@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Github, Linkedin, ExternalLink, ArrowUpRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import {
     Carousel,
@@ -12,11 +12,6 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel'
-
-const baseUrl =
-    process.env.NEXT_PUBLIC_ENVIRONMENT === 'production'
-        ? process.env.NEXT_PUBLIC_PROD_BASE_URL
-        : process.env.NEXT_PUBLIC_DEV_BASE_URL
 
 function SocialLinkButtons() {
     return (
@@ -63,13 +58,15 @@ export default function Portfolio() {
         <div className='min-h-screen bg-background text-foreground'>
             <div className='lg:h-screen lg:overflow-hidden lg:flex'>
                 {/* Left column (static on large screens, scrollable on small screens) */}
-                <div className='lg:w-2/5 p-8 lg:pl-24 flex flex-col items-center lg:items-start justify-center space-y-4 lg:overflow-y-hidden'>
+                <div className='lg:w-2/5 p-8 lg:pl-48 flex flex-col items-center lg:items-start justify-center space-y-4 lg:overflow-y-hidden'>
                     <Image
-                        src='/assets/profile_picture.jpg'
+                        src='/assets/profile/profile_picture.png'
                         alt='Profile Picture'
                         width={300}
                         height={300}
                         className='rounded-full'
+                        priority={true}
+                        loading='eager'
                     />
                     <h1 className='text-3xl font-bold'>Lee Zong Han</h1>
                     <p className='text-xl text-center lg:text-left'>Full Stack Engineer</p>
@@ -83,7 +80,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Right column (scrollable on large screens, part of main scroll on small screens) */}
-                <div className='lg:w-3/5 p-8 lg:pr-24 space-y-16 lg:overflow-y-auto'>
+                <div className='lg:w-3/5 p-8 lg:pr-48 space-y-16 lg:overflow-y-auto'>
                     <section>
                         <h2 className='text-2xl font-semibold mb-4'>About Me</h2>
                         <p className='text-muted-foreground mb-4'>
@@ -105,7 +102,7 @@ export default function Portfolio() {
                             that enables the business to run more efficiently.
                         </p>
                         <p className='text-muted-foreground mb-4'>
-                            When I'm not at my computer, you can find me running, exploring the
+                            When I am not at my computer, you can find me running, exploring the
                             great outdoors, or reading non-fiction books.
                         </p>
                     </section>
@@ -138,7 +135,7 @@ export default function Portfolio() {
                                     ],
                                 },
                             ].map((job, index) => (
-                                <Link
+                                <a
                                     href={job.url}
                                     target='_blank'
                                     rel='noopener noreferrer'
@@ -160,7 +157,7 @@ export default function Portfolio() {
                                             </Badge>
                                         ))}
                                     </div>
-                                </Link>
+                                </a>
                             ))}
 
                             <Button variant='contained' size='sm' asChild>
