@@ -1,101 +1,282 @@
-import Image from "next/image";
+import Image from 'next/image'
+import Link from 'next/link'
+import { Github, Linkedin, ExternalLink, ArrowUpRight } from 'lucide-react'
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from '@/components/ui/carousel'
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+const baseUrl =
+    process.env.NEXT_PUBLIC_ENVIRONMENT === 'production'
+        ? process.env.NEXT_PUBLIC_PROD_BASE_URL
+        : process.env.NEXT_PUBLIC_DEV_BASE_URL
+
+function SocialLinkButtons() {
+    return (
+        <>
+            <Button variant='outline' size='icon' asChild>
+                <Link
+                    href='https://linkedin.com/in/lee-zong-han'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    <Linkedin className='h-4 w-4' />
+                </Link>
+            </Button>
+            <Button variant='outline' size='icon' asChild>
+                <Link
+                    href='https://github.com/zonghanleezh'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    <Github className='h-4 w-4' />
+                </Link>
+            </Button>
+        </>
+    )
+}
+
+const investmentmentManagementPlatformProjectImages = [
+    {
+        src: '/assets/projects/investment_management_login.png',
+        alt: 'Investment Management Platform Login',
+    },
+    {
+        src: '/assets/projects/investment_management_holdings.png',
+        alt: 'Investment Management Platform Holdings',
+    },
+    {
+        src: '/assets/projects/investment_management_statement.png',
+        alt: 'Investment Management Platform Statement',
+    },
+]
+
+export default function Portfolio() {
+    return (
+        <div className='min-h-screen bg-background text-foreground'>
+            <div className='lg:h-screen lg:overflow-hidden lg:flex'>
+                {/* Left column (static on large screens, scrollable on small screens) */}
+                <div className='lg:w-2/5 p-8 lg:pl-24 flex flex-col items-center lg:items-start justify-center space-y-4 lg:overflow-y-hidden'>
+                    <Image
+                        src='/assets/profile_picture.jpg'
+                        alt='Profile Picture'
+                        width={300}
+                        height={300}
+                        className='rounded-full'
+                    />
+                    <h1 className='text-3xl font-bold'>Lee Zong Han</h1>
+                    <p className='text-xl text-center lg:text-left'>Full Stack Engineer</p>
+                    <p className='text-muted-foreground text-center lg:text-left max-w-md'>
+                        A passionate developer with a keen interest in improving lives with
+                        technology.
+                    </p>
+                    <div className='flex space-x-4'>
+                        <SocialLinkButtons />
+                    </div>
+                </div>
+
+                {/* Right column (scrollable on large screens, part of main scroll on small screens) */}
+                <div className='lg:w-3/5 p-8 lg:pr-24 space-y-16 lg:overflow-y-auto'>
+                    <section>
+                        <h2 className='text-2xl font-semibold mb-4'>About Me</h2>
+                        <p className='text-muted-foreground mb-4'>
+                            Back in 2022, I began experimenting with scripting and tumbled into the
+                            world of coding and web development. Fast forward to today, I have built
+                            and contributed to projects in the fintech and startup space.
+                        </p>
+                        <p className='text-muted-foreground mb-4'>
+                            My main focus these days is on building tools for the back office at{' '}
+                            <a
+                                href='https://taprivatecapital.com/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-neutral-800 hover:text-neutral-600 no-underline'
+                            >
+                                TransAsia
+                            </a>
+                            . I enjoy improving the workflow of my colleagues and creating tools
+                            that enables the business to run more efficiently.
+                        </p>
+                        <p className='text-muted-foreground mb-4'>
+                            When I'm not at my computer, you can find me running, exploring the
+                            great outdoors, or reading non-fiction books.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className='text-2xl font-semibold mb-4'>Experience</h2>
+                        <div className='space-y-4'>
+                            {[
+                                {
+                                    title: 'Product ⋅ Capata',
+                                    date: 'January 2024 — Present',
+                                    content:
+                                        'Spearheaded the business requirements gathering for the joint-venture supply chain financing platform. Translated requirements to technical language for the offshore development team. Collaborated with the joint-venture partner CTO to decide platform requirements and architecture.',
+                                    url: 'https://capata.sg/',
+                                    badges: ['Figma'],
+                                },
+                                {
+                                    title: 'Software Engineer ⋅ TransAsia Private Capital',
+                                    date: 'March 2023 — Present',
+                                    content:
+                                        'Architected, built and maintained a private debt investment management platform. Worked closely with the investment and back office to develop tools that streamline the lending process.',
+                                    url: 'https://taprivatecapital.com/',
+                                    badges: [
+                                        'React',
+                                        'Express',
+                                        'Node.js',
+                                        'MongoDB',
+                                        'AWS',
+                                        'Docker',
+                                    ],
+                                },
+                            ].map((job, index) => (
+                                <Link
+                                    href={job.url}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    key={index}
+                                    className='block p-6 bg-card text-card-foreground rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer group'
+                                >
+                                    <div className='mb-2'>
+                                        <h3 className='text-lg font-semibold flex items-center'>
+                                            {job.title}
+                                            <ArrowUpRight className='ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1 group-hover:-translate-y-1' />
+                                        </h3>
+                                        <p className='text-sm text-muted-foreground'>{job.date}</p>
+                                    </div>
+                                    <p className='mb-4 text-sm'>{job.content}</p>
+                                    <div className='flex flex-wrap gap-2'>
+                                        {job.badges.map((badge, badgeIndex) => (
+                                            <Badge key={badgeIndex} variant='secondary'>
+                                                {badge}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                </Link>
+                            ))}
+
+                            <Button variant='contained' size='sm' asChild>
+                                <Link href='/resume' target='_blank' rel='noopener noreferrer'>
+                                    <div className='flex items-center space-x-2 group'>
+                                        <span className='text-lg font-semibold'>
+                                            View Full Resume
+                                        </span>
+                                        <span className='inline-block transition-transform duration-300 ease-in-out group-hover:translate-x-1 group-hover:-translate-y-1'>
+                                            <ArrowUpRight className='h-4 w-4' />
+                                        </span>
+                                    </div>
+                                </Link>
+                            </Button>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className='text-2xl font-semibold mb-4'>Projects</h2>
+                        <div className='grid gap-4'>
+                            <Card className='flex flex-col'>
+                                <Carousel className='w-full max-w-xs mx-auto'>
+                                    <CarouselContent>
+                                        {investmentmentManagementPlatformProjectImages.map(
+                                            (image, index) => (
+                                                <CarouselItem key={index}>
+                                                    <div className='p-1'>
+                                                        <Image
+                                                            src={image.src}
+                                                            alt={image.alt}
+                                                            width={400}
+                                                            height={200}
+                                                            className='object-cover rounded-lg'
+                                                        />
+                                                    </div>
+                                                </CarouselItem>
+                                            )
+                                        )}
+                                    </CarouselContent>
+                                    <CarouselPrevious />
+                                    <CarouselNext />
+                                </Carousel>
+                                <CardHeader className='flex-grow'>
+                                    <CardTitle className='text-lg leading-tight'>
+                                        Investment Management Platform
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className='mb-2'>
+                                        Developed a full-featured back office management platform
+                                        with loan booking, real-time user logging, secure
+                                        authentication, and a responsive portfolio management
+                                        dashboard.
+                                    </p>
+                                    <Button variant='outline' size='sm' asChild>
+                                        <Link
+                                            href='https://app.leezonghan.com'
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                        >
+                                            Visit Site <ExternalLink className='ml-2 h-4 w-4' />
+                                        </Link>
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <span className='text-muted-foreground'>
+                                Coded in{' '}
+                                <a
+                                    href='https://code.visualstudio.com/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='text-neutral-800 hover:text-neutral-600 no-underline'
+                                >
+                                    Visual Studio Code
+                                </a>
+                                . Built with{' '}
+                                <a
+                                    href='https://nextjs.org/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='text-neutral-800 hover:text-neutral-600 no-underline'
+                                >
+                                    Next.js
+                                </a>{' '}
+                                and{' '}
+                                <a
+                                    href='https://tailwindcss.com/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='text-neutral-800 hover:text-neutral-600 no-underline'
+                                >
+                                    Tailwind CSS
+                                </a>
+                                , deployed with{' '}
+                                <a
+                                    href='https://railway.app/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='text-neutral-800 hover:text-neutral-600 no-underline'
+                                >
+                                    Railway
+                                </a>
+                                .
+                            </span>
+                        </div>
+                        <div className='mt-4 text-muted-foreground'>
+                            <span>© {new Date().getFullYear()} Lee Zong Han</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    )
 }
