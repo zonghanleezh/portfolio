@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Github, Linkedin, ExternalLink, ArrowUpRight } from 'lucide-react'
+import dynamic from 'next/dynamic'
+import { ExternalLink, ArrowUpRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import {
     Carousel,
     CarouselContent,
@@ -13,49 +13,23 @@ import {
     CarouselPrevious,
 } from '@/components/ui/carousel'
 
-function SocialLinkButtons() {
-    return (
-        <>
-            <Button variant='outline' size='icon' asChild>
-                <Link
-                    href='https://linkedin.com/in/lee-zong-han'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                >
-                    <Linkedin className='h-4 w-4' />
-                </Link>
-            </Button>
-            <Button variant='outline' size='icon' asChild>
-                <Link
-                    href='https://github.com/zonghanleezh'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                >
-                    <Github className='h-4 w-4' />
-                </Link>
-            </Button>
-        </>
-    )
-}
+import JobCard from '@/components/custom/job-card'
+const SocialLinkButtons = dynamic(() => import('@/components/custom/social-link-buttons'), {
+    ssr: false,
+})
 
-const investmentmentManagementPlatformProjectImages = [
-    {
-        src: '/assets/projects/investment_management_login.png',
-        alt: 'Investment Management Platform Login',
-    },
-    {
-        src: '/assets/projects/investment_management_holdings.png',
-        alt: 'Investment Management Platform Holdings',
-    },
-    {
-        src: '/assets/projects/investment_management_statement.png',
-        alt: 'Investment Management Platform Statement',
-    },
-]
+import { jobs } from '@/data/jobs'
+import { investmentmentManagementPlatform } from '@/data/projectImages'
+
+// const ThemeSwitcher = dynamic(() => import('@/components/common/theme-switcher'), { ssr: false })
 
 export default function Portfolio() {
     return (
         <div className='min-h-screen bg-background text-foreground'>
+            {/* Dark mode toggle */}
+            {/* <div className='flex py-4 px-48 justify-end'>
+                <ThemeSwitcher />
+            </div> */}
             <div className='lg:h-screen lg:overflow-hidden lg:flex'>
                 {/* Left column (static on large screens, scrollable on small screens) */}
                 <div className='lg:w-2/5 p-8 lg:pl-48 flex flex-col items-center lg:items-start justify-center space-y-4 lg:overflow-y-hidden'>
@@ -110,54 +84,15 @@ export default function Portfolio() {
                     <section>
                         <h2 className='text-2xl font-semibold mb-4'>Experience</h2>
                         <div className='space-y-4'>
-                            {[
-                                {
-                                    title: 'Product ⋅ Capata',
-                                    date: 'January 2024 — Present',
-                                    content:
-                                        'Spearheaded the business requirements gathering for the joint-venture supply chain financing platform. Translated requirements to technical language for the offshore development team. Collaborated with the joint-venture partner CTO to decide platform requirements and architecture.',
-                                    url: 'https://capata.sg/',
-                                    badges: ['Figma'],
-                                },
-                                {
-                                    title: 'Software Engineer ⋅ TransAsia Private Capital',
-                                    date: 'March 2023 — Present',
-                                    content:
-                                        'Architected, built and maintained a private debt investment management platform. Worked closely with the investment and back office to develop tools that streamline the lending process.',
-                                    url: 'https://taprivatecapital.com/',
-                                    badges: [
-                                        'React',
-                                        'Express',
-                                        'Node.js',
-                                        'MongoDB',
-                                        'AWS',
-                                        'Docker',
-                                    ],
-                                },
-                            ].map((job, index) => (
-                                <a
-                                    href={job.url}
-                                    target='_blank'
-                                    rel='noopener noreferrer'
+                            {jobs.map((job, index) => (
+                                <JobCard
                                     key={index}
-                                    className='block p-6 bg-card text-card-foreground rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer group'
-                                >
-                                    <div className='mb-2'>
-                                        <h3 className='text-lg font-semibold flex items-center'>
-                                            {job.title}
-                                            <ArrowUpRight className='ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1 group-hover:-translate-y-1' />
-                                        </h3>
-                                        <p className='text-sm text-muted-foreground'>{job.date}</p>
-                                    </div>
-                                    <p className='mb-4 text-sm'>{job.content}</p>
-                                    <div className='flex flex-wrap gap-2'>
-                                        {job.badges.map((badge, badgeIndex) => (
-                                            <Badge key={badgeIndex} variant='secondary'>
-                                                {badge}
-                                            </Badge>
-                                        ))}
-                                    </div>
-                                </a>
+                                    title={job.title}
+                                    date={job.date}
+                                    content={job.content}
+                                    url={job.url}
+                                    badges={job.badges}
+                                />
                             ))}
 
                             <Button variant='contained' size='sm' asChild>
@@ -181,21 +116,19 @@ export default function Portfolio() {
                             <Card className='flex flex-col'>
                                 <Carousel className='w-full max-w-xs mx-auto'>
                                     <CarouselContent>
-                                        {investmentmentManagementPlatformProjectImages.map(
-                                            (image, index) => (
-                                                <CarouselItem key={index}>
-                                                    <div className='p-1'>
-                                                        <Image
-                                                            src={image.src}
-                                                            alt={image.alt}
-                                                            width={400}
-                                                            height={200}
-                                                            className='object-cover rounded-lg'
-                                                        />
-                                                    </div>
-                                                </CarouselItem>
-                                            )
-                                        )}
+                                        {investmentmentManagementPlatform.map((image, index) => (
+                                            <CarouselItem key={index}>
+                                                <div className='p-1'>
+                                                    <Image
+                                                        src={image.src}
+                                                        alt={image.alt}
+                                                        width={400}
+                                                        height={200}
+                                                        className='object-cover rounded-lg'
+                                                    />
+                                                </div>
+                                            </CarouselItem>
+                                        ))}
                                     </CarouselContent>
                                     <CarouselPrevious />
                                     <CarouselNext />
