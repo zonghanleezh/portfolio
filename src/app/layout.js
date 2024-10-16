@@ -1,4 +1,4 @@
-import { ThemeProvider } from 'next-themes'
+// import { ThemeProvider } from 'next-themes'
 import localFont from 'next/font/local'
 import './globals.css'
 
@@ -22,9 +22,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang='en' suppressHydrationWarning>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-                    {children}
-                </ThemeProvider>
+                {/* <ThemeProvider attribute='class' defaultTheme='system' enableSystem> */}
+                {children}
+                {/* </ThemeProvider> */}
             </body>
         </html>
     )
