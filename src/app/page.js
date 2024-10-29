@@ -147,7 +147,7 @@ export default function Portfolio() {
                                     </p>
                                     <Button variant='outline' size='sm' asChild>
                                         <Link
-                                            href='https://app.leezonghan.com'
+                                            href='https://transasia.leezonghan.com'
                                             target='_blank'
                                             rel='noopener noreferrer'
                                         >
@@ -189,7 +189,7 @@ export default function Portfolio() {
                                 >
                                     Tailwind CSS
                                 </a>
-                                , deployed with{' '}
+                                . Deployed with{' '}
                                 <a
                                     href='https://railway.app/'
                                     target='_blank'
