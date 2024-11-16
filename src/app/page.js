@@ -34,7 +34,7 @@ export default function Portfolio() {
                 {/* Left column (static on large screens, scrollable on small screens) */}
                 <div className='lg:w-2/5 p-8 lg:pl-48 flex flex-col items-center lg:items-start justify-center space-y-4 lg:overflow-y-hidden'>
                     <Image
-                        src='/assets/profile/profile_picture.png'
+                        src='/assets/profile/profile_picture.jpg'
                         alt='Profile Picture'
                         width={300}
                         height={300}
