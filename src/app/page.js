@@ -45,7 +45,7 @@ export default function Portfolio() {
                     <h1 className='text-3xl font-bold'>Lee Zong Han</h1>
                     <p className='text-xl text-center lg:text-left'>Full Stack Engineer</p>
                     <p className='text-muted-foreground text-center lg:text-left max-w-md'>
-                        A passionate developer with a keen interest in improving lives with
+                        A passionate developer with a passion to bring positive impact with
                         technology.
                     </p>
                     <div className='flex space-x-4'>
@@ -63,7 +63,7 @@ export default function Portfolio() {
                             and contributed to projects in the fintech and startup space.
                         </p>
                         <p className='text-muted-foreground mb-4'>
-                            My main focus these days is on building tools for the back office at{' '}
+                            My main focus these days is on building tools at{' '}
                             <a
                                 href='https://taprivatecapital.com/'
                                 target='_blank'
@@ -140,14 +140,16 @@ export default function Portfolio() {
                                 </CardHeader>
                                 <CardContent>
                                     <p className='mb-2'>
-                                        Developed a full-featured back office management platform
-                                        with loan booking, real-time user logging, secure
-                                        authentication, and a responsive portfolio management
-                                        dashboard.
+                                        Developed a full-featured investment management platform
+                                        with asynchrnous trade booking, self-service reporting, a
+                                        responsive portfolio management dashboard, and role-based
+                                        authentication. The platform serves as the backbone of the
+                                        middle office, enabling the operations and investment teams
+                                        to execute their tasks effectively.
                                     </p>
                                     <Button variant='outline' size='sm' asChild>
                                         <Link
-                                            href='https://transasia.leezonghan.com'
+                                            href='https://transasia.demo.leezonghan.com'
                                             target='_blank'
                                             rel='noopener noreferrer'
                                         >
