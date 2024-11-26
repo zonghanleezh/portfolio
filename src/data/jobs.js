@@ -1,7 +1,7 @@
 export const jobs = [
     {
         title: 'Software Engineer ⋅ TransAsia Private Capital',
-        date: 'March 2023 — Present',
+        date: 'May 2023 — Present',
         content:
             'Architected, built and maintained a private debt investment management platform. Worked closely with the investment and back office to develop tools that streamline the lending process.',
         url: 'https://taprivatecapital.com/',
