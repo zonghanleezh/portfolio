@@ -1,5 +1,5 @@
-import { ArrowUpRight } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import { ArrowUpRight } from 'lucide-react'
 
 export default function JobCard({ title, date, content, url, badges }) {
     return (
@@ -22,7 +22,7 @@ export default function JobCard({ title, date, content, url, badges }) {
                     <Badge
                         key={index}
                         variant='secondary'
-                        className='group-hover:bg-background group-hover:text-foreground transition-colors duration-200'
+                        className='bg-teal-100 text-teal-800 group-hover:bg-teal-200 group-hover:text-teal-900 transition-colors duration-200'
                     >
                         {badge}
                     </Badge>
