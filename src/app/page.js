@@ -71,16 +71,24 @@ export default function Portfolio() {
                                 className='text-neutral-800 hover:text-neutral-600 no-underline'
                             >
                                 TransAsia
+                            </a>{' '}
+                            and starting up a TransAsia joint-venture{' '}
+                            <a
+                                href='https://capata.sg/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-neutral-800 hover:text-neutral-600 no-underline'
+                            >
+                                Capata
                             </a>
-                            . I enjoy improving the workflow of my colleagues and creating tools
-                            that enables the business to run more efficiently.
+                            . I enjoy improving the workflow of my colleagues and building solutions
+                            that enables businesses to run more effectively and efficiently.
                         </p>
                         <p className='text-muted-foreground mb-4'>
                             When I am not at my computer, you can find me running, exploring the
                             great outdoors, or reading non-fiction books.
                         </p>
                     </section>
-
                     <section>
                         <h2 className='text-2xl font-semibold mb-4'>Experience</h2>
                         <div className='space-y-4'>
