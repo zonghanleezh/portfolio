@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
@@ -14,6 +17,8 @@ import {
 } from '@/components/ui/carousel'
 
 import JobCard from '@/components/custom/job-card'
+import SectionMenu from '@/components/custom/section-menu'
+import { Footer } from '@/components/custom/footer'
 const SocialLinkButtons = dynamic(() => import('@/components/custom/social-link-buttons'), {
     ssr: false,
 })
@@ -21,24 +26,28 @@ const SocialLinkButtons = dynamic(() => import('@/components/custom/social-link-
 import { jobs } from '@/data/jobs'
 import { investmentmentManagementPlatform } from '@/data/projectImages'
 
-// const ThemeSwitcher = dynamic(() => import('@/components/common/theme-switcher'), { ssr: false })
-
 export default function Portfolio() {
+    const [activeSection, setActiveSection] = useState('About Me')
+    const sectionRefs = useRef({})
+
+    const sections = ['About Me', 'Experience', 'Projects']
+
+    const scrollToSection = (section) => {
+        setActiveSection(section)
+        sectionRefs.current[section]?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     return (
         <div className='min-h-screen bg-background text-foreground'>
-            {/* Dark mode toggle */}
-            {/* <div className='flex py-4 px-48 justify-end'>
-                <ThemeSwitcher />
-            </div> */}
             <div className='lg:h-screen lg:overflow-hidden lg:flex'>
-                {/* Left column (static on large screens, scrollable on small screens) */}
+                {/* LEFT SIDE */}
                 <div className='lg:w-2/5 p-8 lg:pl-48 flex flex-col items-center lg:items-start justify-center space-y-4 lg:overflow-y-hidden'>
                     <Image
                         src='/assets/profile/profile_picture.jpg'
                         alt='Profile Picture'
                         width={300}
                         height={300}
-                        className='rounded-full'
+                        style={{ borderRadius: '90px' }}
                         priority={true}
                         loading='eager'
                     />
@@ -51,19 +60,27 @@ export default function Portfolio() {
                     <div className='flex space-x-4'>
                         <SocialLinkButtons />
                     </div>
+                    <div className='hidden lg:block'>
+                        <SectionMenu
+                            sections={sections}
+                            activeSection={activeSection}
+                            onSectionClick={scrollToSection}
+                        />
+                    </div>
                 </div>
 
-                {/* Right column (scrollable on large screens, part of main scroll on small screens) */}
+                {/* RIGHT SIDE */}
                 <div className='lg:w-3/5 p-8 lg:pr-48 space-y-16 lg:overflow-y-auto'>
-                    <section>
+                    <section ref={(el) => (sectionRefs.current['About Me'] = el)}>
                         <h2 className='text-2xl font-semibold mb-4'>About Me</h2>
                         <p className='text-muted-foreground mb-4'>
-                            Back in 2022, I began experimenting with scripting and tumbled into the
-                            world of coding and web development. Fast forward to today, I have built
-                            and contributed to projects in the fintech and startup space.
+                            In 2022, I began experimenting with scripting, which sparked my journey
+                            into coding and web development. Since then, I have built and
+                            contributed to impactful projects in the fintech and startup space,
+                            focusing on scalable web applications and intuitive user experiences.
                         </p>
                         <p className='text-muted-foreground mb-4'>
-                            My main focus these days is on building tools at{' '}
+                            Currently, I am dedicated to developing tools at{' '}
                             <a
                                 href='https://taprivatecapital.com/'
                                 target='_blank'
@@ -72,7 +89,7 @@ export default function Portfolio() {
                             >
                                 TransAsia
                             </a>{' '}
-                            and starting up a TransAsia joint-venture{' '}
+                            and supporting the launch of its joint-venture,{' '}
                             <a
                                 href='https://capata.sg/'
                                 target='_blank'
@@ -81,15 +98,20 @@ export default function Portfolio() {
                             >
                                 Capata
                             </a>
-                            . I enjoy improving the workflow of my colleagues and building solutions
-                            that enables businesses to run more effectively and efficiently.
+                            . My work involves designing and implementing solutions that streamline
+                            workflows, improve efficiency, and address complex business needs. With
+                            experience in both frontend and backend development, I enjoy crafting
+                            full-stack solutions that bring technical ideas to life in practical,
+                            impactful ways.
                         </p>
                         <p className='text-muted-foreground mb-4'>
-                            When I am not at my computer, you can find me running, exploring the
-                            great outdoors, or reading non-fiction books.
+                            Outside of work, I enjoy running, exploring the outdoors, and diving
+                            into non-fiction books to continually expand my knowledge and
+                            perspective.
                         </p>
                     </section>
-                    <section>
+
+                    <section ref={(el) => (sectionRefs.current['Experience'] = el)}>
                         <h2 className='text-2xl font-semibold mb-4'>Experience</h2>
                         <div className='space-y-4'>
                             {jobs.map((job, index) => (
@@ -118,7 +140,7 @@ export default function Portfolio() {
                         </div>
                     </section>
 
-                    <section>
+                    <section ref={(el) => (sectionRefs.current['Projects'] = el)}>
                         <h2 className='text-2xl font-semibold mb-4'>Projects</h2>
                         <div className='grid gap-4'>
                             <Card className='flex flex-col'>
@@ -148,12 +170,10 @@ export default function Portfolio() {
                                 </CardHeader>
                                 <CardContent>
                                     <p className='mb-2'>
-                                        Developed a full-featured investment management platform
-                                        with asynchrnous trade booking, self-service reporting, a
-                                        responsive portfolio management dashboard, and role-based
-                                        authentication. The platform serves as the backbone of the
-                                        middle office, enabling the operations and investment teams
-                                        to execute their tasks effectively.
+                                        A platform with features like asynchronous trade booking,
+                                        self-service reporting, a portfolio management dashboard,
+                                        and role-based authorisation, enabling efficient workflows
+                                        for operations and investment teams.
                                     </p>
                                     <Button variant='outline' size='sm' asChild>
                                         <Link
@@ -169,52 +189,7 @@ export default function Portfolio() {
                         </div>
                     </section>
 
-                    <section>
-                        <div>
-                            <span className='text-muted-foreground'>
-                                Coded in{' '}
-                                <a
-                                    href='https://code.visualstudio.com/'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-neutral-800 hover:text-neutral-600 no-underline'
-                                >
-                                    Visual Studio Code
-                                </a>
-                                . Built with{' '}
-                                <a
-                                    href='https://nextjs.org/'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-neutral-800 hover:text-neutral-600 no-underline'
-                                >
-                                    Next.js
-                                </a>{' '}
-                                and{' '}
-                                <a
-                                    href='https://tailwindcss.com/'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-neutral-800 hover:text-neutral-600 no-underline'
-                                >
-                                    Tailwind CSS
-                                </a>
-                                . Deployed with{' '}
-                                <a
-                                    href='https://railway.app/'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-neutral-800 hover:text-neutral-600 no-underline'
-                                >
-                                    Railway
-                                </a>
-                                .
-                            </span>
-                        </div>
-                        <div className='mt-4 text-muted-foreground'>
-                            <span>© {new Date().getFullYear()} Lee Zong Han</span>
-                        </div>
-                    </section>
+                    <Footer />
                 </div>
             </div>
         </div>
