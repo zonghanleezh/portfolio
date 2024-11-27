@@ -170,7 +170,7 @@ export default function Portfolio() {
                                 </CardHeader>
                                 <CardContent>
                                     <p className='mb-2'>
-                                        A platform with features like asynchronous trade booking,
+                                        A platform featuring asynchronous trade booking,
                                         self-service reporting, a portfolio management dashboard,
                                         and role-based authorisation, enabling efficient workflows
                                         for operations and investment teams.
