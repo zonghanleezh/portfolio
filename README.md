@@ -23,7 +23,7 @@ Along the way, I've also had the opportunity to help shape [Capata](https://capa
 
 A full-featured back-office management system designed for loan booking, real-time user logging, and portfolio management. It’s secure, responsive, and built with scalability in mind.
 
-Check it out here: [Investment Management Platform](https://app.leezonghan.com)
+Check it out here: [Investment Management Platform](https://transasia.demo.leezonghan.com)
 
 ## 🌱 What I’m Learning
 
