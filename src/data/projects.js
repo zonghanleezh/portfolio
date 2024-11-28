@@ -3,7 +3,7 @@ export const projects = [
         title: 'Investment Management Platform',
         description:
             'A platform featuring asynchronous trade booking, self-service reporting, a portfolio management dashboard, and role-based authorisation, enabling efficient workflows for operations and investment teams.',
-        siteUrl: 'https://transasia.demo.leezonghan.com',
+        siteUrl: 'https://investment.demo.leezonghan.com',
         images: [
             {
                 src: '/assets/projects/investment/login.jpg',
