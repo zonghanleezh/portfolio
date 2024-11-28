@@ -19,7 +19,7 @@ export const jobs = [
         title: 'Data Analyst ⋅ Micron Technology',
         date: 'Jul 2022 — Feb 2023',
         content:
-            'Developed python scripts to execute SQL queries to regularly distirbute scheduled dashboards to stakeholders. Successfully applied data analysis techniques on experiemental data to resolve production issues and improve yield.',
+            'Developed python scripts to execute SQL queries, distributing scheduled dashboards to stakeholders. Successfully applied data analysis techniques on experiemental data to resolve production issues and improve manufacturing yield.',
         url: 'https://micron.com/',
         badges: ['Python', 'SQL'],
     },
