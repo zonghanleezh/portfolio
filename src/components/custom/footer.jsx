@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export function Footer() {
+export default function Footer() {
     return (
         <footer className='mt-16'>
             <div>
@@ -32,9 +32,9 @@ export function Footer() {
                     >
                         Tailwind CSS
                     </Link>
-                    . Deployed with{' '}
+                    . Deployed on{' '}
                     <Link
-                        href='https://railway.app/'
+                        href='https://railway.com/'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='text-neutral-800 hover:text-neutral-600 no-underline'
