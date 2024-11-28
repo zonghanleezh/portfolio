@@ -7,15 +7,19 @@ export const projects = [
         images: [
             {
                 src: '/assets/projects/investment/login.jpg',
-                alt: 'Investment Management Platform Login',
+                alt: 'Login',
             },
             {
                 src: '/assets/projects/investment/holdings.jpg',
-                alt: 'Investment Management Platform Holdings',
+                alt: 'Holdings',
             },
             {
-                src: '/assets/projects/investment/statement_of_account.jpg',
-                alt: 'Investment Management Platform Statement',
+                src: '/assets/projects/investment/statement_single.jpg',
+                alt: 'Statement of Account',
+            },
+            {
+                src: '/assets/projects/investment/statement_multi.jpg',
+                alt: 'Statement of Account Multiple Download',
             },
         ],
     },
