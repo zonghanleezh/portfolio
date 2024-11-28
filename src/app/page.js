@@ -46,12 +46,13 @@ export default function Portfolio() {
                     <p className='text-muted-foreground text-center lg:text-left max-w-md'>
                         Hi there! 👋🏻
                         <br />
-                        <br /> I am passionate developer with a passion to bring positive impact
-                        with technology.
+                        <br />
+                        I&apos;m a developer driven by a passion to make a positive impact through
+                        technology.
                         <br />
                         <br />
-                        Feel free to look around and play around with the demos. Let me know what
-                        you think and let&apos;s connect! 🚀
+                        Feel free to explore and try out the demos. I&apos;d love to hear your
+                        thoughts — let&apos;s connect and create something amazing! 🚀
                     </p>
                     <div className='flex space-x-4'>
                         <SocialLinkButtons />
