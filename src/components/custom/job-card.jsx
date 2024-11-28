@@ -22,7 +22,7 @@ export default function JobCard({ title, date, content, url, badges }) {
                     <Badge
                         key={index}
                         variant='secondary'
-                        className='bg-teal-100 text-teal-800 group-hover:bg-teal-200 group-hover:text-teal-900 transition-colors duration-200'
+                        className='bg-sky-100 text-sky-800 group-hover:bg-sky-200 group-hover:text-sky-900 transition-colors duration-200'
                     >
                         {badge}
                     </Badge>
