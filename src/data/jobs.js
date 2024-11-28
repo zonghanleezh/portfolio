@@ -11,8 +11,16 @@ export const jobs = [
         title: 'Software Engineer ⋅ TransAsia Private Capital',
         date: 'May 2023 — Present',
         content:
-            'Developed a full-stack private debt investment management platform, optimizing workflows for operations and investment teams. Features include asynchronous trade booking for concurrent processing, robust data validation for accuracy, and simultaneous read / write operations for seamless user experience. The platform also offers real-time reporting, enhancing decision-making for stakeholders.',
+            'Developed a full-stack private debt investment management platform, optimising workflows for operations and investment teams. Features include asynchronous trade booking for concurrent processing, robust data validation for accuracy, and simultaneous read / write operations for seamless user experience. The platform also offers real-time reporting, enhancing decision-making for stakeholders.',
         url: 'https://taprivatecapital.com/',
         badges: ['React', 'Express', 'Node.js', 'MongoDB', 'Docker'],
+    },
+    {
+        title: 'Data Analyst ⋅ Micron Technology',
+        date: 'Jul 2022 — Feb 2023',
+        content:
+            'Developed python scripts to execute SQL queries to regularly distirbute scheduled dashboards to stakeholders. Successfully applied data analysis techniques on experiemental data to resolve production issues and improve yield.',
+        url: 'https://micron.com/',
+        badges: ['Python', 'SQL'],
     },
 ]
