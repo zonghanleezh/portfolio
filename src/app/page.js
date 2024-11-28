@@ -3,28 +3,18 @@
 import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
-import { ExternalLink, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from '@/components/ui/carousel'
 
 import JobCard from '@/components/custom/job-card'
+import ProjectCard from '@/components/custom/project-card'
 import SectionMenu from '@/components/custom/section-menu'
-import { Footer } from '@/components/custom/footer'
-const SocialLinkButtons = dynamic(() => import('@/components/custom/social-link-buttons'), {
-    ssr: false,
-})
+import Footer from '@/components/custom/footer'
+import SocialLinkButtons from '@/components/custom/social-link-buttons'
 
 import { jobs } from '@/data/jobs'
-import { investmentmentManagementPlatform } from '@/data/projectImages'
+import { projects } from '@/data/projects'
 
 export default function Portfolio() {
     const [activeSection, setActiveSection] = useState('About Me')
@@ -115,14 +105,7 @@ export default function Portfolio() {
                         <h2 className='text-2xl font-semibold mb-4'>Experience</h2>
                         <div className='space-y-4'>
                             {jobs.map((job, index) => (
-                                <JobCard
-                                    key={index}
-                                    title={job.title}
-                                    date={job.date}
-                                    content={job.content}
-                                    url={job.url}
-                                    badges={job.badges}
-                                />
+                                <JobCard key={index} {...job} />
                             ))}
 
                             <Button variant='contained' size='sm' asChild>
@@ -142,50 +125,10 @@ export default function Portfolio() {
 
                     <section ref={(el) => (sectionRefs.current['Projects'] = el)}>
                         <h2 className='text-2xl font-semibold mb-4'>Projects</h2>
-                        <div className='grid gap-4'>
-                            <Card className='flex flex-col'>
-                                <Carousel className='w-full max-w-xs mx-auto'>
-                                    <CarouselContent>
-                                        {investmentmentManagementPlatform.map((image, index) => (
-                                            <CarouselItem key={index}>
-                                                <div className='p-1'>
-                                                    <Image
-                                                        src={image.src}
-                                                        alt={image.alt}
-                                                        width={400}
-                                                        height={200}
-                                                        className='object-cover rounded-lg'
-                                                    />
-                                                </div>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                                <CardHeader className='flex-grow'>
-                                    <CardTitle className='text-lg leading-tight'>
-                                        Investment Management Platform
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className='mb-2'>
-                                        A platform featuring asynchronous trade booking,
-                                        self-service reporting, a portfolio management dashboard,
-                                        and role-based authorisation, enabling efficient workflows
-                                        for operations and investment teams.
-                                    </p>
-                                    <Button variant='outline' size='sm' asChild>
-                                        <Link
-                                            href='https://transasia.demo.leezonghan.com'
-                                            target='_blank'
-                                            rel='noopener noreferrer'
-                                        >
-                                            Visit Site <ExternalLink className='ml-2 h-4 w-4' />
-                                        </Link>
-                                    </Button>
-                                </CardContent>
-                            </Card>
+                        <div className='grid gap-4 '>
+                            {projects.map((project, index) => (
+                                <ProjectCard key={index} {...project} />
+                            ))}
                         </div>
                     </section>
 
