@@ -38,7 +38,7 @@ export default function Portfolio() {
                         width={300}
                         height={300}
                         style={{ borderRadius: '90px' }}
-                        priority={true}
+                        priority
                         loading='eager'
                     />
                     <h1 className='text-3xl font-bold'>Lee Zong Han</h1>
@@ -51,7 +51,7 @@ export default function Portfolio() {
                         <br />
                         <br />
                         Feel free to look around and play around with the demos. Let me know what
-                        you think and let's connect! 🚀
+                        you think and let&apos;s connect! 🚀
                     </p>
                     <div className='flex space-x-4'>
                         <SocialLinkButtons />
