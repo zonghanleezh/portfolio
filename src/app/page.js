@@ -44,8 +44,14 @@ export default function Portfolio() {
                     <h1 className='text-3xl font-bold'>Lee Zong Han</h1>
                     <p className='text-xl text-center lg:text-left'>Full Stack Engineer</p>
                     <p className='text-muted-foreground text-center lg:text-left max-w-md'>
-                        A passionate developer with a passion to bring positive impact with
-                        technology.
+                        Hi there! 👋🏻
+                        <br />
+                        <br /> I am passionate developer with a passion to bring positive impact
+                        with technology.
+                        <br />
+                        <br />
+                        Feel free to look around and play around with the demos. Let me know what
+                        you think and let's connect! 🚀
                     </p>
                     <div className='flex space-x-4'>
                         <SocialLinkButtons />
