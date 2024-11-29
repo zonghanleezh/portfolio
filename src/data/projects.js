@@ -10,6 +10,10 @@ export const projects = [
                 alt: 'Login',
             },
             {
+                src: '/assets/projects/investment/create_user.jpg',
+                alt: 'Create User',
+            },
+            {
                 src: '/assets/projects/investment/holdings.jpg',
                 alt: 'Holdings',
             },
