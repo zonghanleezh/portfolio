@@ -52,7 +52,8 @@ export default function Portfolio() {
                         <br />
                         <br />
                         Feel free to explore and try out the demos. I&apos;d love to hear your
-                        thoughts — let&apos;s connect and create something amazing! 🚀
+                        thoughts — let&apos;s connect to discuss your ideas or collaborate on
+                        innovative projects. 🚀
                     </p>
                     <div className='flex space-x-4'>
                         <SocialLinkButtons />
