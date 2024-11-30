@@ -2,7 +2,7 @@ export const projects = [
     {
         title: 'Investment Management Platform',
         description:
-            'A platform featuring asynchronous trade booking, self-service reporting, a portfolio management dashboard, and role-based authorisation, enabling efficient workflows for operations and investment teams.',
+            'A platform featuring asynchronous trade booking, self-service reporting, portfolio management, and role-based authorisation, enabling efficient workflows for operations and investment teams.',
         siteUrl: 'https://investment.demo.leezonghan.com',
         images: [
             {
