@@ -48,9 +48,9 @@ export default function Portfolio() {
 
     return (
         <div className='min-h-screen bg-background text-foreground'>
-            <div className='lg:h-screen lg:overflow-hidden lg:flex'>
+            <div className='lg:flex'>
                 {/* LEFT SIDE */}
-                <div className='lg:w-2/5 p-8 lg:pl-48 flex flex-col items-center lg:items-start justify-center space-y-4 lg:overflow-y-hidden'>
+                <div className='lg:w-2/5 p-8 lg:pl-48 lg:fixed lg:h-screen flex flex-col items-center lg:items-start justify-center space-y-4'>
                     <Image
                         src='/assets/profile/profile_picture.jpg'
                         alt='Profile Picture'
@@ -87,7 +87,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* RIGHT SIDE */}
-                <div className='lg:w-3/5 p-8 lg:pr-48 space-y-16 lg:overflow-y-auto'>
+                <div className='lg:w-3/5 p-8 lg:pr-48 space-y-16 lg:ml-[40%]'>
                     <section ref={(el) => (sectionRefs.current['About Me'] = el)}>
                         <h2 className='text-2xl font-semibold mb-4'>About Me</h2>
                         <p className='text-muted-foreground mb-4'>
