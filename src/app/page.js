@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
@@ -12,12 +12,14 @@ import ProjectCard from '@/components/custom/project-card'
 import SectionMenu from '@/components/custom/section-menu'
 import Footer from '@/components/custom/footer'
 import SocialLinkButtons from '@/components/custom/social-link-buttons'
+import ScrollUpButton from '@/components/custom/scroll-up-button'
 
 import { jobs } from '@/data/jobs'
 import { projects } from '@/data/projects'
 
 export default function Portfolio() {
     const [activeSection, setActiveSection] = useState('About Me')
+    const [showBackToTop, setShowBackToTop] = useState(false)
     const sectionRefs = useRef({})
 
     const sections = ['About Me', 'Experience', 'Projects']
@@ -26,6 +28,23 @@ export default function Portfolio() {
         setActiveSection(section)
         sectionRefs.current[section]?.scrollIntoView({ behavior: 'smooth' })
     }
+
+    const handleScroll = () => {
+        if (window.scrollY > 300) {
+            setShowBackToTop(true)
+        } else {
+            setShowBackToTop(false)
+        }
+    }
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     return (
         <div className='min-h-screen bg-background text-foreground'>
@@ -143,6 +162,8 @@ export default function Portfolio() {
                     <Footer />
                 </div>
             </div>
+
+            {showBackToTop && <ScrollUpButton scrollToTop={scrollToTop} />}
         </div>
     )
 }
