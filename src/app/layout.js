@@ -14,7 +14,7 @@ const geistMono = localFont({
 
 export const metadata = {
     title: 'Lee Zong Han',
-    description: 'Portfolio website.',
+    description: 'Full Stack Software Engineer from Singapore',
 }
 
 export default function RootLayout({ children }) {
