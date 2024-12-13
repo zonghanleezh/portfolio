@@ -2,7 +2,7 @@ import { resumeUrl } from '@/data/urls'
 
 export const metadata = {
     title: 'Resume | Lee Zong Han',
-    description: 'Full Stack Engineer Resume',
+    description: 'Lee Zong Han Resume',
 }
 
 export default function ResumePage() {
