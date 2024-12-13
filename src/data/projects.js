@@ -6,23 +6,23 @@ export const projects = [
         siteUrl: 'https://investment.demo.leezonghan.com',
         images: [
             {
-                src: '/assets/projects/investment/login.jpg',
+                src: 'https://dgljpdsawrqjifikrckk.supabase.co/storage/v1/object/public/portfolio-assets/projects/investment/login.jpg?t=2024-12-13T02%3A03%3A37.932Z',
                 alt: 'Login',
             },
             {
-                src: '/assets/projects/investment/create_user.jpg',
+                src: 'https://dgljpdsawrqjifikrckk.supabase.co/storage/v1/object/public/portfolio-assets/projects/investment/create_user.jpg?t=2024-12-13T02%3A01%3A21.070Z',
                 alt: 'Create User',
             },
             {
-                src: '/assets/projects/investment/holdings.jpg',
+                src: 'https://dgljpdsawrqjifikrckk.supabase.co/storage/v1/object/public/portfolio-assets/projects/investment/holdings.jpg?t=2024-12-13T02%3A03%3A32.406Z',
                 alt: 'Holdings',
             },
             {
-                src: '/assets/projects/investment/statement_single.jpg',
+                src: 'https://dgljpdsawrqjifikrckk.supabase.co/storage/v1/object/public/portfolio-assets/projects/investment/statement_single.jpg?t=2024-12-13T02%3A03%3A50.715Z',
                 alt: 'Statement of Account',
             },
             {
-                src: '/assets/projects/investment/statement_multi.jpg',
+                src: 'https://dgljpdsawrqjifikrckk.supabase.co/storage/v1/object/public/portfolio-assets/projects/investment/statement_multi.jpg?t=2024-12-13T02%3A03%3A43.729Z',
                 alt: 'Statement of Account Multiple Download',
             },
         ],
