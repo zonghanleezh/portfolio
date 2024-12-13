@@ -7,6 +7,7 @@ import { ArrowUpRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 
+import SEO from '@/components/seo'
 import JobCard from '@/components/custom/job-card'
 import ProjectCard from '@/components/custom/project-card'
 import SectionMenu from '@/components/custom/section-menu'
@@ -49,6 +50,7 @@ export default function Portfolio() {
 
     return (
         <div className='min-h-screen bg-background text-foreground'>
+            <SEO />
             <div className='lg:flex'>
                 {/* LEFT SIDE */}
                 <div className='lg:w-2/5 p-8 lg:pl-48 lg:fixed lg:h-screen flex flex-col items-center lg:items-start justify-center space-y-4'>
@@ -60,6 +62,7 @@ export default function Portfolio() {
                         style={{ borderRadius: '90px' }}
                         priority
                         loading='eager'
+                        unoptimized={true}
                     />
                     <h1 className='text-3xl font-bold'>Lee Zong Han</h1>
                     <p className='text-xl text-center lg:text-left'>Full Stack Engineer</p>

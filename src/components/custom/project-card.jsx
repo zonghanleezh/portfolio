@@ -25,6 +25,7 @@ export default function ProjectCard({ images, title, description, siteUrl }) {
                                     width={400}
                                     height={200}
                                     className='object-cover rounded-lg'
+                                    unoptimized={true}
                                 />
                             </div>
                         </CarouselItem>
