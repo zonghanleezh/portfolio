@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import TechLink from './tech-link'
 
 export default function Footer() {
     return (
@@ -6,42 +6,11 @@ export default function Footer() {
             <div>
                 <span className='text-muted-foreground'>
                     Coded in{' '}
-                    <Link
-                        href='https://code.visualstudio.com/'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='text-neutral-800 hover:text-neutral-600 no-underline'
-                    >
-                        Visual Studio Code
-                    </Link>
-                    . Built with{' '}
-                    <Link
-                        href='https://nextjs.org/'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='text-neutral-800 hover:text-neutral-600 no-underline'
-                    >
-                        Next.js
-                    </Link>{' '}
-                    and{' '}
-                    <Link
-                        href='https://tailwindcss.com/'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='text-neutral-800 hover:text-neutral-600 no-underline'
-                    >
-                        Tailwind CSS
-                    </Link>
-                    . Deployed on{' '}
-                    <Link
-                        href='https://railway.com/'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='text-neutral-800 hover:text-neutral-600 no-underline'
-                    >
-                        Railway
-                    </Link>
-                    .
+                    <TechLink href='https://code.visualstudio.com/'>Visual Studio Code</TechLink>.
+                    Built with <TechLink href='https://nextjs.org/'>Next.js</TechLink> and{' '}
+                    <TechLink href='https://tailwindcss.com/'>Tailwind CSS</TechLink>. Images hosted
+                    on <TechLink href='https://supabase.com/'>Supabase</TechLink>. Deployed on{' '}
+                    <TechLink href='https://railway.com/'>Railway</TechLink>.
                 </span>
             </div>
             <div className='mt-4 text-muted-foreground'>
