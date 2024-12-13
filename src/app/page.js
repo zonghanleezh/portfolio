@@ -16,6 +16,7 @@ import ScrollUpButton from '@/components/custom/scroll-up-button'
 
 import { jobs } from '@/data/jobs'
 import { projects } from '@/data/projects'
+import { profilePictureUrl } from '@/data/urls'
 
 export default function Portfolio() {
     const [activeSection, setActiveSection] = useState('About Me')
@@ -52,7 +53,7 @@ export default function Portfolio() {
                 {/* LEFT SIDE */}
                 <div className='lg:w-2/5 p-8 lg:pl-48 lg:fixed lg:h-screen flex flex-col items-center lg:items-start justify-center space-y-4'>
                     <Image
-                        src='/assets/profile/profile_picture.jpg'
+                        src={profilePictureUrl}
                         alt='Profile Picture'
                         width={300}
                         height={300}
