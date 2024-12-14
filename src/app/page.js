@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 
@@ -14,6 +13,7 @@ import SectionMenu from '@/components/custom/section-menu'
 import Footer from '@/components/custom/footer'
 import SocialLinkButtons from '@/components/custom/social-link-buttons'
 import ScrollUpButton from '@/components/custom/scroll-up-button'
+import ProtectedImage from '@/components/custom/protected-image'
 
 import { jobs } from '@/data/jobs'
 import { projects } from '@/data/projects'
@@ -54,7 +54,7 @@ export default function Portfolio() {
             <div className='lg:flex'>
                 {/* LEFT SIDE */}
                 <div className='lg:w-2/5 p-8 lg:pl-48 lg:fixed lg:h-screen flex flex-col items-center lg:items-start justify-center space-y-4'>
-                    <Image
+                    <ProtectedImage
                         src={profilePictureUrl}
                         alt='Profile Picture'
                         width={300}
@@ -62,7 +62,7 @@ export default function Portfolio() {
                         style={{ borderRadius: '90px' }}
                         priority
                         loading='eager'
-                        unoptimized={true}
+                        unoptimized
                     />
                     <h1 className='text-3xl font-bold'>Lee Zong Han</h1>
                     <p className='text-xl text-center lg:text-left'>Full Stack Engineer</p>

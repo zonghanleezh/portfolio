@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -10,6 +9,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel'
+import ProtectedImage from './protected-image'
 
 export default function ProjectCard({ images, title, description, siteUrl }) {
     return (
@@ -19,13 +19,13 @@ export default function ProjectCard({ images, title, description, siteUrl }) {
                     {images.map((image, index) => (
                         <CarouselItem key={index}>
                             <div className='p-1'>
-                                <Image
+                                <ProtectedImage
                                     src={image.src}
                                     alt={image.alt}
                                     width={400}
                                     height={200}
-                                    className='object-cover rounded-lg'
-                                    unoptimized={true}
+                                    unoptimized
+                                    className='rounded-lg'
                                 />
                             </div>
                         </CarouselItem>
