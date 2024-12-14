@@ -53,7 +53,7 @@ export default function Portfolio() {
             <SEO />
             <div className='lg:flex'>
                 {/* LEFT SIDE */}
-                <div className='lg:w-2/5 p-8 lg:pl-48 lg:fixed lg:h-screen flex flex-col items-center lg:items-start justify-center space-y-4'>
+                <div className='lg:w-2/5 p-8 lg:pl-36 xl:pl-48 lg:fixed lg:h-screen flex flex-col items-center lg:items-start justify-center space-y-4'>
                     <ProtectedImage
                         src={profilePictureUrl}
                         alt='Profile Picture'
@@ -91,7 +91,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* RIGHT SIDE */}
-                <div className='lg:w-3/5 p-8 lg:pr-48 space-y-16 lg:ml-[40%]'>
+                <div className='lg:w-3/5 p-8 lg:pr-36 xl:pr-48 space-y-16 lg:ml-[40%]'>
                     <section ref={(el) => (sectionRefs.current['About Me'] = el)}>
                         <h2 className='text-2xl font-semibold mb-4'>About Me</h2>
                         <p className='text-muted-foreground mb-4'>
