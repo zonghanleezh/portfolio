@@ -110,7 +110,7 @@ export default function Portfolio() {
                             >
                                 TransAsia
                             </a>{' '}
-                            and supporting the launch of its joint-venture,{' '}
+                            and supporting the launch of its startup,{' '}
                             <a
                                 href='https://capata.sg/'
                                 target='_blank'
