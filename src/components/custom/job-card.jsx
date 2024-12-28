@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { ArrowUpRight } from 'lucide-react'
 
-export default function JobCard({ title, date, content, url, badges }) {
+export default function JobCard({ title, date, intro, bullets, url, badges }) {
     return (
         <a
             href={url}
@@ -16,7 +16,14 @@ export default function JobCard({ title, date, content, url, badges }) {
                 </h3>
                 <p className='text-sm text-muted-foreground'>{date}</p>
             </div>
-            <p className='mb-4 text-sm'>{content}</p>
+            {intro && <p className='mb-2 text-sm'>{intro}</p>}
+            {bullets && bullets.length > 0 && (
+                <ul className='list-disc list-inside space-y-1 mb-4 text-sm'>
+                    {bullets.map((bullet, index) => (
+                        <li key={index}>{bullet}</li>
+                    ))}
+                </ul>
+            )}
             <div className='flex flex-wrap gap-2'>
                 {badges.map((badge, index) => (
                     <Badge
