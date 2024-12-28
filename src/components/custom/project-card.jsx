@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/carousel'
 import ProtectedImage from './protected-image'
 
-export default function ProjectCard({ images, title, description, siteUrl }) {
+export default function ProjectCard({ images, title, description, isDemo, siteUrl }) {
     return (
         <Card className='flex flex-col'>
             <Carousel className='w-full max-w-xs mx-auto'>
@@ -39,11 +39,13 @@ export default function ProjectCard({ images, title, description, siteUrl }) {
             </CardHeader>
             <CardContent>
                 <p className='mb-2'>{description}</p>
-                <Button variant='outline' size='sm' asChild>
-                    <Link href={siteUrl} target='_blank' rel='noopener noreferrer'>
-                        Demo <ExternalLink className='ml-2 h-4 w-4' />
-                    </Link>
-                </Button>
+                {isDemo && (
+                    <Button variant='outline' size='sm' asChild>
+                        <Link href={siteUrl} target='_blank' rel='noopener noreferrer'>
+                            Demo <ExternalLink className='ml-2 h-4 w-4' />
+                        </Link>
+                    </Button>
+                )}
             </CardContent>
         </Card>
     )
