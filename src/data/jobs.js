@@ -13,12 +13,13 @@ export const jobs = [
     {
         title: 'Software Engineer ⋅ TransAsia Private Capital',
         date: 'May 2023 — Present',
-        intro: 'Developed a full-stack private debt investment management platform.',
+        intro: 'Developed and launched a full-stack private debt investment management platform.',
         bullets: [
-            'Optimized workflows for the operations and investment teams.',
+            'Defined and established the tech stack, core architecture and MVP.',
+            'Optimised workflows for the operations and investment teams.',
             'Implemented asynchronous trade booking for concurrent processing.',
             'Designed robust data validation mechanisms for accuracy.',
-            'Provided real-time reporting features for enhanced decision-making.',
+            'Developed real-time reporting features for enhanced decision-making.',
         ],
         url: 'https://taprivatecapital.com/',
         badges: ['React', 'Express', 'Node.js', 'MongoDB', 'Docker'],
