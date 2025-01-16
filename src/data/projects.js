@@ -24,6 +24,10 @@ export const projects = [
                 src: `${bucketUrl}/storage/v1/object/public/portfolio-assets/projects/ai-email/vector_search.jpg`,
                 alt: 'Vector Search',
             },
+            {
+                src: `${bucketUrl}/storage/v1/object/public/portfolio-assets/projects/ai-email/stripe.jpg`,
+                alt: 'Stripe',
+            },
         ],
         badges: ['Next.js', 'PostgresSQL', 'OpenAI', 'Stripe'],
     },
