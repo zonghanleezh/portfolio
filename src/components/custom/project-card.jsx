@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
     Carousel,
@@ -11,7 +12,7 @@ import {
 } from '@/components/ui/carousel'
 import ProtectedImage from './protected-image'
 
-export default function ProjectCard({ images, title, description, isDemo, siteUrl }) {
+export default function ProjectCard({ images, title, description, isDemo, siteUrl, badges }) {
     return (
         <Card className='flex flex-col'>
             <Carousel className='w-full max-w-xs mx-auto'>
@@ -39,6 +40,17 @@ export default function ProjectCard({ images, title, description, isDemo, siteUr
             </CardHeader>
             <CardContent>
                 <p className='mb-2'>{description}</p>
+                <div className='flex flex-wrap gap-2 mb-4'>
+                    {badges.map((badge, index) => (
+                        <Badge
+                            key={index}
+                            variant='secondary'
+                            className='bg-sky-100 text-sky-800 group-hover:bg-sky-200 group-hover:text-sky-900 transition-colors duration-200'
+                        >
+                            {badge}
+                        </Badge>
+                    ))}
+                </div>
                 {isDemo && (
                     <Button variant='outline' size='sm' asChild>
                         <Link href={siteUrl} target='_blank' rel='noopener noreferrer'>
