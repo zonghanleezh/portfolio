@@ -4,7 +4,7 @@ export const projects = [
     {
         title: 'AI-Powered Email Client',
         description:
-            'A SAAS email client featuring a RAG chatbot, full-text vector search and a command shortcut interface.',
+            'A SaaS email client featuring a RAG chatbot, full-text vector search and a command shortcut interface.',
         isDemo: true,
         siteUrl: `${process.env.AI_EMAIL_DEMO_URL}`,
         images: [
@@ -21,11 +21,15 @@ export const projects = [
                 alt: 'Autocompose',
             },
             {
+                src: `${bucketUrl}/storage/v1/object/public/portfolio-assets/projects/ai-email/command.jpg`,
+                alt: 'Command',
+            },
+            {
                 src: `${bucketUrl}/storage/v1/object/public/portfolio-assets/projects/ai-email/stripe.jpg`,
                 alt: 'Stripe',
             },
         ],
-        badges: ['Next.js', 'PostgresSQL', 'OpenAI', 'Stripe'],
+        badges: ['Next.js', 'PostgreSQL', 'OpenAI', 'Stripe'],
     },
     {
         title: 'Investment Management Platform',
