@@ -13,16 +13,12 @@ export const projects = [
                 alt: 'Landing',
             },
             {
-                src: `${bucketUrl}/storage/v1/object/public/portfolio-assets/projects/ai-email/rag_chatbot.jpg`,
-                alt: 'RAG Chatbot',
+                src: `${bucketUrl}/storage/v1/object/public/portfolio-assets/projects/ai-email/mail.jpg`,
+                alt: 'Mail',
             },
             {
                 src: `${bucketUrl}/storage/v1/object/public/portfolio-assets/projects/ai-email/autocompose.jpg`,
                 alt: 'Autocompose',
-            },
-            {
-                src: `${bucketUrl}/storage/v1/object/public/portfolio-assets/projects/ai-email/vector_search.jpg`,
-                alt: 'Vector Search',
             },
             {
                 src: `${bucketUrl}/storage/v1/object/public/portfolio-assets/projects/ai-email/stripe.jpg`,
